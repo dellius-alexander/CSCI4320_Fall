@@ -37,7 +37,8 @@ jobs:
       - uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 7.1
-      - run: gradle build --dry-run # just test build configuration
+          arguments: |
+            build --dry-run # just test build configuration      
 
       - name: Step 2 - Verify Repository Contents
         run: |
