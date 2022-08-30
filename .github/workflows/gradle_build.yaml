@@ -34,7 +34,7 @@ jobs:
           java-version: 11
 
       - name: Step 1 - Setup Gradle
-      - uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 7.1
           arguments: |
