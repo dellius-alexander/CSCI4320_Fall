@@ -45,7 +45,7 @@ jobs:
           ls -lia
 
       - name: Step 3 - Execute Gradle build
-        run:
+        run: |
           gradlew build
 
       - name: Step 4 - Setup a cache for Maven
