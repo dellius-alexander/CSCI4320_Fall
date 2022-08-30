@@ -35,6 +35,8 @@ jobs:
 
       - name: Step 1 - Setup Gradle
         uses: gradle/gradle-build-action@v2
+        run: |
+          - ls -lia
 
       - name: Step 2 - Execute Gradle build
         run: ./gradlew build
