@@ -13,16 +13,16 @@ import java.util.Random;
  * @version 1.1
  */
 public class Person2 {
-    /** Holds the persons real name */
-    private String name;
-	 	/**
+	/** Holds the persons real name */
+	private String name;
+	/**
 	 * The constructor, takes in the persons
 	 * name
 	 * @param pname the person's real name
 	 */
-	 public Person2(String pname) {
-	   name = pname;
-	 }
+	public Person2(String pname) {
+		name = pname;
+	}
 	/**
 	 * This method should take the string
 	 * input and return its characters in
@@ -44,8 +44,8 @@ public class Person2 {
 			inputs.remove(val);
 		}
 //		System.out.printf("\nRandom String: %s\n",outputs);
-	  //Person 2 put your implementation here
-	  return outputs;
+		//Person 2 put your implementation here
+		return outputs;
 	}
 	/**
 	 * Return a string rep of this object
@@ -56,7 +56,7 @@ public class Person2 {
 	 *         object
 	 */
 	public String toString(String input) {
-	  return name + calc(input);
+		return name + calc(input);
 	}
 
 	public static void main(String[] args) {
