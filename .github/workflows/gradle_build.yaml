@@ -38,7 +38,8 @@ jobs:
         with:
           gradle-version: 7.1
           arguments: |
-            build --dry-run # just test build configuration      
+            build 
+            --dry-run    
 
       - name: Step 2 - Verify Repository Contents
         run: |
