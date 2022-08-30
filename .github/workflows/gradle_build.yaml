@@ -33,7 +33,7 @@ jobs:
           distribution: temurin
           java-version: 11
 
-      - name: Step 1 - Setup Gradle
+      - name: Step 1 - Setup Gradle and Execute Dry Run
         uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 7.1
@@ -43,7 +43,7 @@ jobs:
 
       - name: Step 2 - Verify Repository Contents
         run: |
-          ls -lia
+          ls 
 
       - name: Step 3 - Execute Gradle build
         uses: gradle/gradle-build-action@v2
@@ -52,12 +52,15 @@ jobs:
           arguments: |
             build  
 
-      - name: Step 4 - Setup a cache for Maven
+      - name: Step 4 - Setup a cache for Gradle
         uses: actions/cache@v2
         with:
-          path: ~/.gradle
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/gradle.build') }}
-          restore-keys: ${{ runner.os }}-gradle
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
 
       - name: Step 5 - Persist build artifacts
         uses: actions/upload-artifact@v2
