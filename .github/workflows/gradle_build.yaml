@@ -66,4 +66,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: csci4320-artifact
-          path: staging
+          path: build/libs
