@@ -38,7 +38,7 @@ jobs:
 
       - name: Step 1.5 - Setup Gradle
         run: |
-          - ls -lia
+          ls -lia
 
       - name: Step 2 - Execute Gradle build
         run: ./gradlew build
