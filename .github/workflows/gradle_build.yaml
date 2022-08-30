@@ -34,23 +34,27 @@ jobs:
           java-version: 11
 
       - name: Step 1 - Setup Gradle
-        uses: gradle/gradle-build-action@v2
+      - uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: 7.1
+      - run: gradle build --dry-run # just test build configuration
 
-      - name: Step 1.5 - Setup Gradle
+      - name: Step 2 - Verify Repository Contents
         run: |
           ls -lia
 
-      - name: Step 2 - Execute Gradle build
-        run: ./gradlew build
+      - name: Step 3 - Execute Gradle build
+        run:
+          gradlew build
 
-      - name: Step 3 - Setup a cache for Maven
+      - name: Step 4 - Setup a cache for Maven
         uses: actions/cache@v2
         with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/gradle.build') }}
-          restore-keys: ${{ runner.os }}-m2
+          path: ~/.gradle
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/gradle.build') }}
+          restore-keys: ${{ runner.os }}-gradle
 
-      - name: Step 4 - Persist build artifacts
+      - name: Step 5 - Persist build artifacts
         uses: actions/upload-artifact@v2
         with:
           name: csci4320-artifact
