@@ -63,7 +63,7 @@ import edu.cs4320.antlab.pkg3.*;
 		  toPrint += p1.toString("csuLaker1");
 		  //Person2 replace P2 with your name
 		  //and csuLaker with your laker id
-		  Person2 p2 = new Person2("AnnMarie");
+		  Person2 p2 = new Person2(" Ann Marie Whitley ");
 		  toPrint += p2.toString("csuLaker2");
 		  //Person3 replace P3 with your name
 		  //and csuLaker3 with your laker id
