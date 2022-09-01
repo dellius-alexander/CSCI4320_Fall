@@ -48,7 +48,7 @@ jobs:
         run: |
           ls 
 
-      - name: Step 3 - Execute Gradle build
+      - name: Step 3 - Execute Package build
         uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 7.1
@@ -56,7 +56,14 @@ jobs:
             build  
             test
 
-      - name: Step 4 - Setup a cache for Gradle
+      - name: Step 4 - Execute Package Tests
+        uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: 7.1
+          arguments: |
+            test
+
+      - name: Step 5 - Setup a cache for Gradle
         uses: actions/cache@v2
         with:
           path: |
@@ -66,7 +73,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      - name: Step 5 - Persist build artifacts
+      - name: Step 6 - Persist build artifacts
         uses: actions/upload-artifact@v2
         with:
           name: csci4320-artifact
@@ -88,11 +95,11 @@ jobs:
         if: ${{ github.event.workflow_run.conclusion == 'success' }}
         name: Merge With Master On Success
         uses: ridedott/merge-me-action@v2
-          #        with:
+        with:
           # Depending on branch protection rules, a  manually populated
           # `GITHUB_TOKEN_WORKAROUND` secret with permissions to push to
           # a protected branch must be used. This secret can have an arbitrary
-        # name, as an example, you can use `SOME_RANDOM_TOKEN_STRING`.
-        # Since this repository has no protected branches we will omit
-        # this part of the step.
-  #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # name, as an example, you can use `SOME_RANDOM_TOKEN_STRING`.
+          # Since this repository has no protected branches we will omit
+          # this part of the step.
+          GITHUB_TOKEN: ${{ secrets.BRANCH_ACCESS_TOKEN }}
