@@ -14,19 +14,13 @@ on:
     branches:
       - 'master'
       - 'release*'
+      - '*'
 
   pull_request:
     branches:
       - 'master'
       - 'release*'
-
-  # Trigger on Pull Requests against the master branch.
-  pull_request_target:
-    branches:
-      - 'master'
-    types:
-      - opened
-      - synchronize
+      - '*'
 
 jobs:
   # This job will perform build and tests on project package.
