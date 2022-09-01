@@ -13,9 +13,6 @@ on:
   workflow_run:
     types:
       - completed
-    workflows:
-      # List all required workflow names here.
-      - 'Build-Test'
 
 jobs:
   merge-me:
