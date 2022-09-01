@@ -20,7 +20,16 @@ on:
       - 'master'
       - 'release*'
 
+  # Trigger on Pull Requests against the master branch.
+  pull_request_target:
+    branches:
+      - 'master'
+    types:
+      - opened
+      - synchronize
+
 jobs:
+  # This job will perform build and tests on project package.
   Build:
     strategy:
       matrix:
@@ -67,3 +76,28 @@ jobs:
         with:
           name: csci4320-artifact
           path: build/libs
+
+  # This job will attempt to merge only on success Build job completion.
+  merge-me:
+    # Automatic Merge will not occur unless a successful Build and Test Run
+    # List all required job names here.
+    needs:
+      - Build
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, macos-latest, windows-latest ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - # It is often a desired behavior to merge only when a workflow execution
+        # succeeds. This can be changed as needed.
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        name: Merge With Master On Success
+        uses: ridedott/merge-me-action@v2
+          #        with:
+          # Depending on branch protection rules, a  manually populated
+          # `GITHUB_TOKEN_WORKAROUND` secret with permissions to push to
+          # a protected branch must be used. This secret can have an arbitrary
+        # name, as an example, you can use `SOME_RANDOM_TOKEN_STRING`.
+        # Since this repository has no protected branches we will omit
+        # this part of the step.
+  #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
