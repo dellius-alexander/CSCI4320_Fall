@@ -59,9 +59,9 @@ public class Person2 {
 	  return name + calc(input);
 	}
 
-	public static void main(String[] args) {
-		Person2 p = new Person2("AnnMarie");
-		p.calc("AnnMarie");
-		System.out.printf("%s",p.toString("Whitley"));
-	}
+//	public static void main(String[] args) {
+//		Person2 p = new Person2("AnnMarie");
+//		p.calc("AnnMarie");
+//		System.out.printf("%s",p.toString("Whitley"));
+//	}
 }
