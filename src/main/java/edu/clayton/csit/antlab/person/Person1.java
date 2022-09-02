@@ -64,9 +64,9 @@ public class Person1 {
 	  return name + calc(input);
 	}
 
-	public static void main(String[] args) {
-		Person1 p1 = new Person1("Dellius Alexander");
-		System.out.printf("\nRotated: %s\n",p1.calc("12345678"));
-		System.out.printf("\nToString: %s\n",p1.toString("  12345678"));
-	}
+//	public static void main(String[] args) {
+//		Person1 p1 = new Person1("Dellius Alexander");
+//		System.out.printf("\nRotated: %s\n",p1.calc("12345678"));
+//		System.out.printf("\nToString: %s\n",p1.toString("  12345678"));
+//	}
 }
