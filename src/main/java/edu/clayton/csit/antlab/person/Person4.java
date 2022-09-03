@@ -16,8 +16,8 @@ public class Person4 {
      * name
      * @param pname the person's real name
      */
-  public Person4(String pname) {
-    name = pname;
+  public Person4(String Makieron) {
+    name = Makieron;
   }
     /**
      * This method should return a string
@@ -29,8 +29,13 @@ public class Person4 {
      * @param input the string to be modified
      * @return the modified string
      */
-    private String calc(String input) {
-      //Person 4 put your implementation here
+    private String calc(String 123456) {
+        String str = "123456";
+          String strIncremented = new String();
+        for (int i = 0; i < str.length();i++){
+          strIncremented+=(char)(str.charAt(i)+1);
+        }
+        System.out.println(strIncremented);
       return null;
     }
     
