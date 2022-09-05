@@ -41,19 +41,19 @@ jobs:
         with:
           gradle-version: 7.1
           arguments: |
-            build 
-            --dry-run    
+            build
+            --dry-run
 
       - name: Step 2 - Verify Repository Contents
         run: |
-          ls 
+          ls
 
       - name: Step 3 - Execute Package build
         uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 7.1
           arguments: |
-            build  
+            build
             test
 
       - name: Step 4 - Execute Package Tests
@@ -79,6 +79,12 @@ jobs:
           name: csci4320-artifact
           path: build/libs
 
+      - name: Step 7 - Persist Test Results
+        uses: actions/upload-artifact@v2
+        with:
+          name: csci4320-test-results
+          path: build/reports/tests
+
   # This job will attempt to merge only on success Build job completion.
   merge-me:
     # Automatic Merge will not occur unless a successful Build and Test Run
@@ -102,4 +108,4 @@ jobs:
           # name, as an example, you can use `SOME_RANDOM_TOKEN_STRING`.
           # Since this repository has no protected branches we will omit
           # this part of the step.
-          GITHUB_TOKEN: ${{ secrets.BRANCH_ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
