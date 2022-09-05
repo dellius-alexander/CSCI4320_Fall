@@ -11,3 +11,4 @@ Team members:
 - Dellius Alexander
 - Ann Marie Whitley
 - Cuong Nguyen
+- Preston Shealey
