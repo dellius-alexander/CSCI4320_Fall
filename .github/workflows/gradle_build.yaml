@@ -85,10 +85,6 @@ jobs:
           name: csci4320-test-results
           path: build/reports/tests
 
-      - name: Step 8 - Copy to Tests Dir
-        run: |
-          cp -R build/reports/tests  docs/
-
   # This job will attempt to merge only on success Build job completion.
   merge-me:
     # Automatic Merge will not occur unless a successful Build and Test Run
@@ -112,4 +108,4 @@ jobs:
           # name, as an example, you can use `SOME_RANDOM_TOKEN_STRING`.
           # Since this repository has no protected branches we will omit
           # this part of the step.
-          GITHUB_TOKEN: ${{ secrets.BRANCH_ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
