@@ -97,7 +97,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: csci4320-test-results
-          path: build/reports/tests
+          path: build/reports/tests/test
 
   # This job will attempt to merge only on success Build job completion.
   merge-me:
