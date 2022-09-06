@@ -9,7 +9,6 @@
 name: 'Build-Test'
 env:
   JAVA_HOME: '/__t/Java_Adopt_jdk/11.0.16-8/x64/bin/java'
-  url: ${{ steps.deployment.outputs.page_url }}
 on:
   push:
     branches:
