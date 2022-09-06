@@ -114,13 +114,13 @@ jobs:
 
   # Single deploy job since we're just deploying
   deploy:
-    if: contains(github.ref, "master")
     needs:
       - Build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    if: contains(github.ref, "master")
     steps:
       - name: Checkout
         uses: actions/checkout@v3
