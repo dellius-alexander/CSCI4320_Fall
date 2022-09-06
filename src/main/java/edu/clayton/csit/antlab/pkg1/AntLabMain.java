@@ -86,6 +86,7 @@ import edu.cs4320.antlab.pkg3.*;
     
     /**
      * entry point for the program
+     * @param args CLi arguments
      */
      public static void main(String[] args) {
         
