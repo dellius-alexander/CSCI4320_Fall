@@ -6,7 +6,9 @@
 # This workflow will build a Java project with Gradle and
 # cache/restore any dependencies to improve the workflow execution time
 ##########################################################################
-name: 'Build-Test'
+name: 'Build, Test, Deploy Github Pages'
+env:
+  JAVA_HOME: '/__t/Java_Adopt_jdk/11.0.16-8/x64/bin/java'
 on:
   push:
     branches:
@@ -68,14 +70,7 @@ jobs:
             build
             test
 
-      - name: Step 4 - Execute Package Tests
-        uses: gradle/gradle-build-action@v2
-        with:
-          gradle-version: 7.1
-          arguments: |
-            test
-
-      - name: Step 5 - Setup a cache for Gradle
+      - name: Step 4 - Setup a cache for Gradle
         uses: actions/cache@v2
         with:
           path: |
@@ -85,13 +80,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      - name: Step 6 - Persist build artifacts
+      - name: Step 5 - Persist build artifacts
         uses: actions/upload-artifact@v2
         with:
           name: csci4320-artifact
           path: build/libs
 
-      - name: Step 7 - Persist Test Results
+      - name: Step 6 - Persist Test Results
         uses: actions/upload-artifact@v2
         with:
           name: csci4320-test-results
@@ -193,7 +188,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
-          path: '.'
+          path: './test'
           # Depending on branch protection rules, a  manually populated
           # `GITHUB_TOKEN_WORKAROUND` secret with permissions to push to
           # a protected branch must be used. This secret can have an arbitrary
@@ -208,4 +203,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
-
