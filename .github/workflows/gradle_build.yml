@@ -7,8 +7,6 @@
 # cache/restore any dependencies to improve the workflow execution time
 ##########################################################################
 name: 'Build, Test, Deploy Github Pages'
-env:
-  JAVA_HOME: '/__t/Java_Adopt_jdk/11.0.16-8/x64/bin/java'
 on:
   push:
     branches:
@@ -141,8 +139,8 @@ jobs:
           #   "failure", "success", "neutral", "cancelled", "skipped", "timed_out", "action_required"
           # Or a workflow status:
           #   "completed", "in_progress", "queued"
-          # Use the empty string ("") to ignore status or conclusion in the search
-          workflow_conclusion: success
+          #          # Use the empty string ("") to ignore status or conclusion in the search
+          #          workflow_conclusion: success
           #          # Optional, will get head commit SHA
           #          pr: ${{github.event.pull_request.number}}
           #          # Optional, no need to specify if PR is
