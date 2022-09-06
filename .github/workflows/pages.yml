@@ -40,7 +40,7 @@ jobs:
           # Artifact name
           name: csci4320-test-results # optional
           # Destination path
-          path: '.' # optional
+          path: 'csci4320-test-results' # optional
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
