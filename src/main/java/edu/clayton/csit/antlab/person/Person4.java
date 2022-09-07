@@ -1,4 +1,5 @@
 package edu.clayton.csit.antlab.person;
+import java.util.*;
 
 /**
  *  A simple class for person 4
@@ -29,8 +30,8 @@ public class Person4 {
      * @param input the string to be modified
      * @return the modified string
      */
-    private String calc(String 123456) {
-        String str = "123456";
+    private String calc(String input) {
+        String str = "input";
           String strIncremented = new String();
         for (int i = 0; i < str.length();i++){
           strIncremented+=(char)(str.charAt(i)+1);
