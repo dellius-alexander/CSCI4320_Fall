@@ -1,4 +1,4 @@
-package edu.clayton.csit.antlab.person;;
+package edu.clayton.csit.antlab.person;
 /**
  *  A simple class for person 3
  *  returns their name and a
@@ -43,6 +43,20 @@ public class Person3 {
 	 */
 	private String calc(String input) {
 	  //Person 3 put your implementation here
-	  return null;
+		if (input==null){
+			return null; //return null if input is nothing
+		}
+		char[] ch = new char[input.length()];//length of the string input
+		int index = 0;
+		for(int i = input.length() - 1; i>=0; i--){
+			//reverse position each character in the string
+			ch[index]=input.charAt(i);
+			index++;
+		}
+		String rev ="";// new string output of the reverse string
+		for (int i = 0; i < input.length(); i++){ //build the reverse string from the reverse loop above
+			rev += ch[i];
+		}
+		return rev;//return new reverse string
 	}
 }
