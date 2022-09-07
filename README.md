@@ -14,3 +14,4 @@ Team members:
 - Ann Marie Whitley
 - Cuong Nguyen
 - Preston Shealey
+- Makieron Lissade
